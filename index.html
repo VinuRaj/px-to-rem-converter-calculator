@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous"></script>
+    <title>PX to REM converter / PX to REM calculator</title>
+    <meta name="description" content="Simple PX to REM calculator that converts pixel to root em with the base font-size of 16px or 16 pixels, but can be changed based your CSS requirments.">
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://labs.diagramz.com/px-to-rem-converter-calculator/" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@vinurajvarma">
+    <meta name="twitter:title" content="PX to REM converter / PX to REM calculator">
+    <meta name="twitter:description" content="Simple PX to REM calculator that converts pixel to root em with the base font-size of 16px or 16 pixels, but can be changed based your CSS requirments.">
+    <meta name="twitter:creator" content="@vinurajvarma">
+    <meta name="twitter:image" content="https://cdn.statically.io/og/fontsize=160px/PX%20to%20REM%20converter%20calculator.jpg">
+    <meta property="og:title" content="PX to REM converter / PX to REM calculator" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://labs.diagramz.com/px-to-rem-converter-calculator/" />
+    <meta property="og:image" content="https://cdn.statically.io/og/fontsize=160px/PX%20to%20REM%20converter%20calculator.jpg" />
+    <meta property="og:description" content="Simple PX to REM calculator that converts pixel to root em with the base font-size of 16px or 16 pixels, but can be changed based your CSS requirments." />
+    <meta property="og:site_name" content="Diagramz" />
+  </head>
+  <body class="bg-white dark:bg-gray-800 dark:text-white min-h-screen">
+    <div class="relative block overflow-hidden">
+      <div class="container px-3 mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+          <div class="flex flex-col align-middle justify-center pt-5 pb-0 md:pb-5">
+            <h1 class="text-5xl lg:text-8xl font-black dark:text-white text-center mb-8 md:mb-0">PX to REM <span class="block text-xl lg:text-2xl">PX to REM converter / PX to REM calculator</span></h1>
+            <div class="block relative md:py-10">
+              <form class="flex flex-col justify-start lg:max-w-lg mx-auto prose lg:prose-xl">
+                <div class="pb-5">
+                  <input type="text" value="16" id="base" class="rounded w-full text-2xl dark:text-gray-900">
+                  <label class="block">Set the <strong>base</strong> font-size <i>(in px)</i> which is usually declared on your &#x3C;html&#x3E; element.</label>
+                </div>
+                <div class="pb-5">
+                  <textarea id="list"  class="rounded w-full text-lg dark:text-gray-900" rows="3">1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24,26,28,30,32,34,36,38,40,50,60,70,80,90,100</textarea>
+                  <label class="block">Every <strong>PX sizes</strong> you need to convert to REM sizes.</label>
+                </div>
+                <button type="submit" id="calc" class="bg-black border border-black rounded text-white px-8 py-4 font-bold uppercase transition duration-500 ease-in-out hover:bg-gray-700">Calculate / Convert</button>
+              </form>
+              <div class="block relative pt-8 max-w-lg mx-auto prose lg:prose-xl">
+                <p class="mb-3">A simple calculator converts PX to REM (pixel to root em) with the base font size of 16px or 16 pixels <i>(but can be changed based on your CSS requirements)</i>.</p>
+                <p class="mb-3">As a designer or front end developer, we use px (pixel) and rem (root em) as a relative unit of CSS to measure the length of screen media or screens or displays on various devices.</p>
+                <h4 class="mb-3 font-bold">PX to REM calculation formula</h4>
+                <p class="mb-3">You could also use the formula <code class="font-bold">rem = px/base font size</code> to manually calculate or convert PX to REM.</p>
+                <p class="text-sm">The code is originally based on <a class="text-pink-500 transition duration-500 ease-in-out hover:text-pink-700" href="https://gist.github.com/daniellmb" target="_blank" rel="noopener noreferrer">Danny Lamb</a> work.</p>
+              </div>                
+            </div>
+          </div>
+          <div class="flex flex-col align-middle justify-center pt-5 pb-0 md:pb-5">
+            <div class="prose lg:prose-xl text-center mb-8">
+              <h4 class="mb-2">Calculated PX to REM result based on a root font-size of <span id="basesize" class="font-extrabold text-3xl"></span> pixel</h4>
+              <p class="text-sm">(PX to REM conversion table / REM to PX conversion table)</p>
+            </div>
+            <ul id="result" class="grid grid-cols-2 pl-0 text-center"></ul>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="block relative py-6 text-center">
+      <p class="flex flex-row justify-center align-middle text-sm">Part of <a class="ml-2 text-pink-500 transition duration-500 ease-in-out hover:text-pink-700" href="https://diagramz.com/" target="_blank" rel="noopener noreferrer">Diagramz</a><svg class="mx-2 fill-current transform rotate-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11.633 8h-1.206c-.007-1.129-.105-2.101-.805-3.251l1.03-.626c.861 1.418.973 2.611.981 3.877zm1.945 0h-1.202c.01-1.323.125-2.473.977-3.877l1.03.626c-.699 1.151-.798 2.129-.805 3.251zm-5.474-1.927c-1.332-1.087-1.382-2.51-.561-3.516.483-.593 1.136-.892 1.928-.88.524-1.096 1.532-1.677 2.532-1.677 1.032 0 2.016.614 2.524 1.677.794-.012 1.441.284 1.928.88.814.998.794 2.416-.602 3.549l-.843-.593c.388-.467.759-.885.759-1.396 0-.86-1.027-1.628-2.071-1.059-.003-1.073-.828-1.794-1.653-1.817-.866-.023-1.739.711-1.742 1.817-1.088-.592-2.074.242-2.074 1.059 0 .505.363.917.745 1.378l-.87.578zm12.655 14.425c-2.342-3.663-5.575-6.958-5.743-11.498h-2.016c.173 5.212 3.512 8.539 5.953 12.356.143.302-.068.644-.377.644h-1.264l-4.734-7h-3.52c.873-1.665 1.85-3.414 1.936-6h-2.01c-.169 4.543-3.421 7.864-5.743 11.498-.165.347-.241.707-.241 1.057 0 1.283 1.023 2.445 2.423 2.445h13.153c1.4 0 2.424-1.162 2.424-2.446 0-.35-.076-.709-.241-1.056zm-13.259 1.502c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5 1.5.671 1.5 1.5-.672 1.5-1.5 1.5zm3.5-3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm2 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z"/></svg> Labs</p>
+    </div>
+    <script>
+      const result =  document.querySelector("#result");
+      const base =  document.querySelector("#base");
+      document.getElementById('basesize').innerHTML = base.value;
+      const list =  document.querySelector("#list");
+
+      const btn = document.querySelector("#calc");
+
+      btn.onclick = function(e) {
+          e.preventDefault();
+          const baseValue = base.value;
+          const pxValue = list.value.split(',');  
+          const html = [];       
+          pxValue.forEach(function(v){
+            const px = parseInt(v);
+            const rem = parseFloat((px / parseInt(baseValue, 10)).toPrecision(4));
+            const isBase = (rem === 1) ? ' <strong>(base)</strong>' : '';
+            html.push('<li class="text-lg mb-2 lg:text-xl py-2 dark:text-black odd:bg-gray-200 even:bg-gray-300">' + v + 'px = ' + rem + 'rem' + isBase + '</li>');            
+          });      
+          result.innerHTML = html.join('');
+          document.getElementById('basesize').innerHTML = base.value;
+       };
+       list.addEventListener("keypress", function(e){
+              if (event.keyCode === 13) {
+                e.preventDefault();
+                btn.click();
+              }
+          });
+          window.onload = function(){
+            document.getElementById('calc').click();
+          }
+      </script>
+  </body>
+</html>
