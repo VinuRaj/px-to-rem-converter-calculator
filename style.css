@@ -1,3 +1,725 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    @font-face {
+      font-family: MaisonNeueLight;
+      font-weight: 300;
+      src: url(/fonts/MaisonNeue-Light.woff2) format("woff2");
+    }
+    @font-face {
+      font-family: MaisonNeueLight;
+      font-weight: 300;
+      src: url(/fonts/MaisonNeue-Light.woff) format("woff");
+    }
+    @font-face {
+      font-family: MaisonNeueLight;
+      font-weight: 300;
+      src: url(/fonts/MaisonNeue-Light.ttf) format("ttf");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Book.woff) format("woff");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Book.eot) format("eot");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Book.ttf) format("ttf");
+    }
+    @font-face {
+      font-family: MaisonNeueMedium;
+      font-weight: 500;
+      src: url(/fonts/MaisonNeue-Medium.woff) format("woff");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Medium.eot) format("eot");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Medium.ttf) format("ttf");
+    }
+    @font-face {
+        font-family: MaisonNeueBold;
+        font-weight: 800;
+        src: url(/fonts/MaisonNeue-Bold.woff) format("woff");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Bold.eot) format("eot");
+    }
+    @font-face {
+      font-family: MaisonNeueBook;
+      font-weight: 400;
+      src: url(/fonts/MaisonNeue-Bold.ttf) format("ttf");
+    }
+  }
+  
+  html {
+    scroll-behavior: smooth;  
+  }
+  body {
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "case" 1,"rlig" 1,"calt" 0;
+      -webkit-font-kerning: normal;
+      font-kerning: normal;
+       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* overflow: hidden; */
+  }
+
+  .nos {
+	opacity: 0;
+	display: none;
+	/* transition: opacity .8s cubic-bezier(.34,.07,.095,.995); */
+}
+.nos.active {
+	opacity: 1;
+	display: inline-block
+	/* transition: opacity .8s cubic-bezier(.34,.07,.095,.995); */
+}
+.box {
+	opacity: 0.1;
+	transition: opacity .8s cubic-bezier(.34,.07,.095,.995);
+}
+.box.active {
+	opacity: 1;
+	transition: opacity .8s cubic-bezier(.34,.07,.095,.995);
+}
+.path-0,
+.path-1 {
+	fill: none;
+	stroke: #000
+}
+.path-1 {
+	stroke-linecap: round
+}
+.path-2,
+.path-3 {
+	fill: none;
+	stroke: #000;
+	stroke-dasharray: 1, 3
+}
+.path-3 {
+	stroke-linecap: round
+}
+.path-4 {
+	fill: #e9e9e9
+}
+.path-6 {
+	fill: #000
+}
+.path-7 {
+	fill: none;
+	stroke: #000;
+	stroke-linecap: round;
+	stroke-dasharray: .95, 2.84
+}
+.path-8 {
+	fill: none;
+	stroke: #000;
+	stroke-linecap: round;
+	stroke-dasharray: .99, 2.97
+}
+.path-9 {
+	fill: none;
+	stroke: #000;
+	stroke-dasharray: 3, 3
+}
+.path-10,
+.path-11 {
+	fill: none;
+	stroke: #fff
+}
+.path-11 {
+	stroke-linecap: round
+}
+.path-12 {
+	fill: none;
+	stroke: #fff;
+	stroke-dasharray: 3, 3
+}
+.path-13 {
+	fill: none;
+	stroke: #fff;
+	stroke-linecap: round;
+	stroke-dasharray: 1, 3
+}
+.path-14 {
+	fill: #EF168C;
+}
+.path-16 {
+	stroke: #fff;
+	stroke-dasharray: 3, 6
+}
+.path-16,
+.path-17,
+.path-18 {
+	fill: none
+}
+.path-18 {
+	stroke: #171717
+}
+.ball-0-disk {
+	animation-name: r360;
+	animation-iteration-count: infinite
+}
+.ball-0-dashed-cover {
+	stroke-dashoffset: 0
+}
+.ball-s .ball-0-dashed-cover {
+	animation-name: da0To659;
+	stroke-dasharray: 659.734;
+	animation-delay: 1s
+}
+.ball-l .ball-0-dashed-cover {
+	animation-name: da0To1558;
+	stroke-dasharray: 1558.23;
+	animation-delay: 1.5s
+}
+.ball-s .ball-0-stroke {
+	animation-name: da659To0;
+	stroke-dasharray: 659.734;
+	stroke-dashoffset: 659.734;
+	animation-delay: 3s
+}
+.ball-l .ball-0-stroke {
+	animation-name: da1558To0;
+	stroke-dasharray: 1558.23;
+	stroke-dashoffset: 1558.23;
+	animation-delay: 4.5s
+}
+.ball-1-disk-0 {
+	animation-name: r240, o10
+}
+.ball-s .ball-1-disk-0.ball-fx {
+	animation-duration: 1333.33333ms
+}
+.ball-l .ball-1-disk-0.ball-fx {
+	animation-duration: 2s
+}
+.ball-1-disk-1 {
+	animation-name: r360, o10;
+	opacity: 0
+}
+.ball-s .ball-1-disk-1 {
+	animation-delay: 1333.33333ms
+}
+.ball-l .ball-1-disk-1 {
+	animation-delay: 2s
+}
+.ball-1-disk-2 {
+	animation-name: r360, o10;
+	opacity: 0
+}
+.ball-s .ball-1-disk-2 {
+	animation-delay: 3.33333333s
+}
+.ball-l .ball-1-disk-2 {
+	animation-delay: 5s
+}
+.ball-1-disk-3 {
+	animation-name: r360, o01;
+	animation-iteration-count: infinite;
+	opacity: 0
+}
+.ball-s .ball-1-disk-3 {
+	animation-delay: 5.33333333s
+}
+.ball-l .ball-1-disk-3 {
+	animation-delay: 8s
+}
+.ball-1-dashed-cover {
+	stroke-dashoffset: 0
+}
+.ball-s .ball-1-dashed-cover {
+	animation-name: da0To659;
+	stroke-dasharray: 659.734;
+	animation-delay: 1333.33333ms
+}
+.ball-l .ball-1-dashed-cover {
+	animation-name: da0To1558;
+	stroke-dasharray: 1558.23;
+	animation-delay: 2s
+}
+.ball-1-stroke-s {
+	stroke-dashoffset: 0
+}
+.ball-s .ball-1-stroke-s {
+	animation-name: da0To389;
+	stroke-dasharray: 389.557;
+	animation-delay: 3.33333333s
+}
+.ball-l .ball-1-stroke-s {
+	animation-name: da0To917;
+	stroke-dasharray: 917.345;
+	animation-delay: 5s
+}
+.ball-s .ball-1-stroke-l {
+	animation-name: da659To0;
+	stroke-dasharray: 659.734;
+	stroke-dashoffset: 659.734;
+	animation-delay: 5.33333333s
+}
+.ball-l .ball-1-stroke-l {
+	animation-name: da1558To0;
+	stroke-dasharray: 1558.23;
+	stroke-dashoffset: 1558.23;
+	animation-delay: 8s
+}
+.ball-2-disk-0 {
+	animation-name: r480, o10;
+	opacity: 0
+}
+.ball-s .ball-2-disk-0.ball-fx {
+	animation-duration: 2.66666667s
+}
+.ball-l .ball-2-disk-0.ball-fx {
+	animation-duration: 4s
+}
+@keyframes rEVertSS {
+	0% {
+		transform: rotate(-90deg) translateX(6.30952vw) rotate(90deg) rotateY(-53deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(6.30952vw) rotate(-270deg) rotateY(-53deg)
+	}
+}
+@keyframes rEVertSL {
+	0% {
+		transform: rotate(-90deg) translateX(14.7619vw) rotate(90deg) rotateY(-53deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(14.7619vw) rotate(-270deg) rotateY(-53deg)
+	}
+}
+@keyframes rEVertSSW {
+	0% {
+		transform: rotate(-90deg) translateX(9.25081vw) rotate(90deg) rotateY(-53deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(9.25081vw) rotate(-270deg) rotateY(-53deg)
+	}
+}
+@keyframes rEVertSLW {
+	0% {
+		transform: rotate(-90deg) translateX(21.64339vw) rotate(90deg) rotateY(-53deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(21.64339vw) rotate(-270deg) rotateY(-53deg)
+	}
+}
+.ball-2-disk-1 {
+	transform: rotate(180deg) rotateY(53deg)
+}
+.ball-2-disk-1-rotate {
+	opacity: 0
+}
+.ball-s .ball-2-disk-1-rotate {
+	animation-name: rEVertSS, o10;
+	animation-delay: 2.66666667s
+}
+.ball-l .ball-2-disk-1-rotate {
+	animation-name: rEVertSL, o10;
+	animation-delay: 4s
+}
+.w1 .ball-s .ball-2-disk-1-rotate {
+	animation-name: rEVertSSW, o10
+}
+.w1 .ball-l .ball-2-disk-1-rotate {
+	animation-name: rEVertSLW, o10
+}
+.ball-2-ellipse-vert-l.fx {
+	animation-play-state: paused
+}
+.ball-s .ball-2-ellipse-vert-l {
+	animation-name: da540To0;
+	stroke-dasharray: 540;
+	stroke-dashoffset: 540;
+	animation-delay: 2.66666667s
+}
+.ball-l .ball-2-ellipse-vert-l {
+	animation-name: da1265To0;
+	stroke-dasharray: 1265;
+	stroke-dashoffset: 1265;
+	animation-delay: 4s
+}
+@keyframes rEVertLS {
+	0% {
+		transform: rotate(-90deg) translateX(6.30952vw) rotate(90deg) rotateY(-76deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(6.30952vw) rotate(-270deg) rotateY(-76deg)
+	}
+}
+@keyframes rEVertLL {
+	0% {
+		transform: rotate(-90deg) translateX(14.7619vw) rotate(90deg) rotateY(-76deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(14.7619vw) rotate(-270deg) rotateY(-76deg)
+	}
+}
+@keyframes rEVertLSW {
+	0% {
+		transform: rotate(-90deg) translateX(9.25081vw) rotate(90deg) rotateY(-76deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(9.25081vw) rotate(-270deg) rotateY(-76deg)
+	}
+}
+@keyframes rEVertLLW {
+	0% {
+		transform: rotate(-90deg) translateX(21.64339vw) rotate(90deg) rotateY(-76deg)
+	}
+	to {
+		transform: rotate(270deg) translateX(21.64339vw) rotate(-270deg) rotateY(-76deg)
+	}
+}
+.ball-2-disk-2 {
+	transform: rotate(180deg) rotateY(76deg)
+}
+.ball-2-disk-2-rotate {
+	opacity: 0
+}
+.ball-s .ball-2-disk-2-rotate {
+	animation-name: rEVertLS, o10;
+	animation-delay: 4.66666667s
+}
+.ball-l .ball-2-disk-2-rotate {
+	animation-name: rEVertLL, o10;
+	animation-delay: 7s
+}
+.w1 .ball-s .ball-2-disk-2-rotate {
+	animation-name: rEVertLSW, o10
+}
+.w1 .ball-l .ball-2-disk-2-rotate {
+	animation-name: rEVertLLW, o10
+}
+.ball-s .ball-2-ellipse-vert-s {
+	animation-name: da450To0;
+	stroke-dasharray: 450;
+	stroke-dashoffset: 450;
+	animation-delay: 4.66666667s
+}
+.ball-l .ball-2-ellipse-vert-s {
+	animation-name: da1060To0;
+	stroke-dasharray: 1060;
+	stroke-dashoffset: 1060;
+	animation-delay: 7s
+}
+.ball-2-disk-3 {
+	animation-name: r90, o10;
+	opacity: 0
+}
+.ball-s .ball-2-disk-3 {
+	animation-delay: 6.66666667s
+}
+.ball-s .ball-2-disk-3.ball-fx {
+	animation-duration: .5s
+}
+.ball-l .ball-2-disk-3 {
+	animation-delay: 10s
+}
+.ball-l .ball-2-disk-3.ball-fx {
+	animation-duration: .75s
+}
+@keyframes rEHoriS {
+	0% {
+		transform: rotate(0deg) translateX(6.30952vw) rotate(0deg) rotateX(-76deg)
+	}
+	to {
+		transform: rotate(1turn) translateX(6.30952vw) rotate(-1turn) rotateX(-76deg)
+	}
+}
+@keyframes rEHoriL {
+	0% {
+		transform: rotate(0deg) translateX(14.7619vw) rotate(0deg) rotateX(-76deg)
+	}
+	to {
+		transform: rotate(1turn) translateX(14.7619vw) rotate(-1turn) rotateX(-76deg)
+	}
+}
+@keyframes rEHoriSW {
+	0% {
+		transform: rotate(0deg) translateX(9.25081vw) rotate(0deg) rotateX(-76deg)
+	}
+	to {
+		transform: rotate(1turn) translateX(9.25081vw) rotate(-1turn) rotateX(-76deg)
+	}
+}
+@keyframes rEHoriLW {
+	0% {
+		transform: rotate(0deg) translateX(21.64339vw) rotate(0deg) rotateX(-76deg)
+	}
+	to {
+		transform: rotate(1turn) translateX(21.64339vw) rotate(-1turn) rotateX(-76deg)
+	}
+}
+.ball-2-disk-4 {
+	transform: rotate(180deg) rotateX(76deg)
+}
+.ball-2-disk-4-rotate {
+	opacity: 0
+}
+.ball-s .ball-2-disk-4-rotate {
+	animation-name: rEHoriS, o10;
+	animation-delay: 7.16666667s
+}
+.ball-l .ball-2-disk-4-rotate {
+	animation-name: rEHoriL, o10;
+	animation-delay: 10.75s
+}
+.w1 .ball-s .ball-2-disk-4-rotate {
+	animation-name: rEHoriSW, o10
+}
+.w1 .ball-l .ball-2-disk-4-rotate {
+	animation-name: rEHoriLW, o10
+}
+.ball-s .ball-2-ellipse-hori {
+	animation-name: da450To0;
+	stroke-dasharray: 450;
+	stroke-dashoffset: 450;
+	animation-delay: 7.16666667s
+}
+.ball-l .ball-2-ellipse-hori {
+	animation-name: da1060To0;
+	stroke-dasharray: 1060;
+	stroke-dashoffset: 1060;
+	animation-delay: 10.75s
+}
+.ball-2-disk-5 {
+	animation-name: r360, o01;
+	animation-iteration-count: infinite;
+	opacity: 0
+}
+.ball-s .ball-2-disk-5 {
+	animation-delay: 9.16666667s
+}
+.ball-l .ball-2-disk-5 {
+	animation-delay: 13.75s
+}
+.ball {
+	position: relative
+}
+.ball>div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%
+}
+/* .ball-s {
+	margin-left: -.41667vw;
+	width: 13.45238vw;
+	height: 13.45238vw
+} */
+.ball-s .ball-disk-s {
+	height: 8.33333vw
+}
+.w1 .ball-s {
+	position: absolute;
+	top: 7.7381vw;
+	right: -.52005vw;
+	width: 19.7619vw;
+	height: 19.7619vw
+}
+.w1 .ball-s .ball-disk-s {
+	height: 12.24189vw
+}
+.ball-l {
+	margin-left: -.41667vw;
+	width: 30.35714vw;
+	height: 30.35714vw
+}
+.ball-l .ball-disk-s {
+	height: 18.33333vw
+}
+.ball-ellipse {
+	position: relative;
+	transform-style: preserve-3d
+}
+.ball-ellipse div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: .83333vw;
+	height: .83333vw;
+	border-radius: 50%;
+	background: #fff
+}
+.w1 .ball-ellipse div {
+	width: 1.2218vw;
+	height: 1.2218vw
+}
+.ball-fx {
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+	animation-play-state: paused
+}
+.ball-s .ball-fx {
+	animation-duration: 2s
+}
+.ball-l .ball-fx {
+	animation-duration: 3s
+}
+.ball-fx.fx {
+	animation-play-state: running
+}
+.ball-fx.ball-atf {
+	animation-timing-function: linear, steps(1)
+}
+.ball-1-disk-3.ball-fx,
+.ball-2-disk-5.ball-fx {
+	animation-timing-function: linear, step-start
+}
+@keyframes r90 {
+	0% {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(90deg)
+	}
+}
+@keyframes r240 {
+	0% {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(240deg)
+	}
+}
+@keyframes r360 {
+	0% {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(1turn)
+	}
+}
+@keyframes r480 {
+	0% {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(480deg)
+	}
+}
+@keyframes o01 {
+	0% {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+@keyframes o10 {
+	0% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+@keyframes da0To1558 {
+	0% {
+		stroke-dashoffset: 0
+	}
+	to {
+		stroke-dashoffset: 1558.23
+	}
+}
+@keyframes da1558To0 {
+	0% {
+		stroke-dashoffset: 1558.23
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da0To917 {
+	0% {
+		stroke-dashoffset: 0
+	}
+	to {
+		stroke-dashoffset: 917.345
+	}
+}
+@keyframes da1265To0 {
+	0% {
+		stroke-dashoffset: 1265
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da1060To0 {
+	0% {
+		stroke-dashoffset: 1060
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da917To0 {
+	0% {
+		stroke-dashoffset: 917.345
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da0To659 {
+	0% {
+		stroke-dashoffset: 0
+	}
+	to {
+		stroke-dashoffset: 659.734
+	}
+}
+@keyframes da659To0 {
+	0% {
+		stroke-dashoffset: 659.734
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da540To0 {
+	0% {
+		stroke-dashoffset: 540
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da450To0 {
+	0% {
+		stroke-dashoffset: 450
+	}
+	to {
+		stroke-dashoffset: 0
+	}
+}
+@keyframes da0To389 {
+	0% {
+		stroke-dashoffset: 0
+	}
+	to {
+		stroke-dashoffset: 389.557
+	}
+}

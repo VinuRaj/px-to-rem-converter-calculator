@@ -1,10 +1,17 @@
 const colors = require('tailwindcss/colors')
+
 module.exports = {
-  purge: [
-    './style.css',
-    './index.html'
-  ],
-  darkMode: 'media', // or 'media' or 'class'
+  purge: {
+    content: [
+      `components/**/*.{vue,js}`,
+      `layouts/**/*.vue`,
+      `pages/**/*.vue`,
+      `plugins/**/*.{js,ts}`,
+      `nuxt.config.{js,ts}`
+    ]
+  },
+  presets: [],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -16,6 +23,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -26,10 +34,11 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      brandtextlight:'#707070',
-      branddarkgray: '#707070',
-      brandlightgray:'#F4F4F4',
-      brandgray: '#E1E1E1'
+      brandpink: '#EF168C',
+      brandpurple:'#6B1EDB',
+      brandpurplelight:'#B5A8DD',
+      brandash:'#7D7D7D',
+      brandpurpledark:'#2B3147',
     },
     spacing: {
       px: '1px',
@@ -75,6 +84,10 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
       loader: 'loader 3s infinite ease-in-out',
+      textscroll1: 'textscroll1 60s linear -20s infinite',
+      textscroll2: 'textscroll2 60s linear 10s infinite',
+      textscroll3: 'textscroll3 60s linear -20s infinite',
+      textscroll4: 'textscroll4 60s linear 10s infinite',
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
@@ -169,6 +182,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'MaisonNeueLight',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -195,6 +209,10 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      MaisonNeueLight:['MaisonNeueLight', 'sans-serif'],
+      MaisonNeueBook:['MaisonNeueBook', 'sans-serif'],
+      MaisonNeueMedium:['MaisonNeueMedium', 'sans-serif'],
+      MaisonNeueBold:['MaisonNeueBold', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -415,6 +433,38 @@ module.exports = {
         '100%': {
           backgroundColor: 'rgba(165, 165, 165, 0.1)',
         },
+      },
+      textscroll1: {
+        '0%': {
+          transform: 'translate3d(100vw, 0, 0)',
+        },
+        '100%': {          
+          transform: 'translate3d(100vw, 0, 0) translate3d(-200%, 0, 0)',
+        }
+      },      
+      textscroll2: {
+        '0%':  {
+          transform: 'translate3d(100vw, 0, 0) translate3d(-100%, 0, 0)',
+        },
+        '100%': {
+          transform: 'translate3d(100vw, 0, 0) translate3d(-300%, 0, 0)',
+        }
+      },
+      textscroll3: {
+        '0%':  {
+          transform: 'translate3d(-100%, 0, 0)',
+        },
+        '100%': {
+          transform: 'translate3d(100%, 0, 0)',
+        }
+      },
+      textscroll4: {
+        '0%':  {
+          transform: 'translate3d(-200%, 0, 0)',
+        },
+        '100%':{
+          transform: 'translate3d(0, 0, 0)'
+        }
       }
     },
     letterSpacing: {
@@ -735,62 +785,6 @@ module.exports = {
       40: '40',
       50: '50',
     },
-    typography: (theme) => ({
-      default: {
-          css: {
-              color: theme('colors.gray.900'),
-              a: {
-                  color: theme('colors.blue.700'),
-                  '&:hover': {
-                      color: theme('colors.blue.700'),
-                  },
-              },
-          },
-      },
-
-      dark: {
-          css: {
-              color: theme('colors.gray.300'),
-              a: {
-                  color: theme('colors.green.500'),
-                  '&:hover': {
-                      color: theme('colors.green.500'),
-                  },
-              },
-
-              h1: {
-                  color: theme('colors.gray.300'),
-              },
-              h2: {
-                  color: theme('colors.gray.300'),
-              },
-              h3: {
-                  color: theme('colors.gray.300'),
-              },
-              h4: {
-                  color: theme('colors.gray.300'),
-              },
-              h5: {
-                  color: theme('colors.gray.300'),
-              },
-              h6: {
-                  color: theme('colors.gray.300'),
-              },
-
-              strong: {
-                  color: theme('colors.gray.300'),
-              },
-
-              code: {
-                  color: theme('colors.gray.300'),
-              },
-
-              figcaption: {
-                  color: theme('colors.gray.500'),
-              },
-          },
-      },
-    }),
   },
   variantOrder: [
     'first',
@@ -817,7 +811,7 @@ module.exports = {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'odd', 'even', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
     backgroundImage: ['responsive'],
     backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
     backgroundPosition: ['responsive'],
@@ -929,7 +923,6 @@ module.exports = {
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
+    //require('@tailwindcss/aspect-ratio'),
   ],
 }

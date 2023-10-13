@@ -1,6 +1,6 @@
 {
-  "name": "px-to-rem-converter-calculator",
-  "version": "0.0.0",
+  "name": "innovyz",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
